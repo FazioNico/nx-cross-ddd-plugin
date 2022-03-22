@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsPlatformUI",
+  "title": "Platform UI Feature Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Platform UI Feature Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "domain": {
+      "type": "string",
+      "format": "path",
+      "description": "The Domain linked library. If you dont want to link with Domain Library, leave empty field and use `--directory` to define folder structure",
+      "visible": true
+    },
+    "feature": {
+      "type": "string",
+      "format": "path",
+      "description": "The Feature linked library name. If you dont want to link with Domain Library, leave empty field and use `--directory` to define folder structure",
+      "visible": true
+    },
+    "directory": {
+      "type": "string",
+      "format": "path",
+      "description": "The folder directory to generate library. Will be merged with `--framework` parameter.",
+      "visible": true
+    },
+    "framework": {
+      "type": "string",
+      "format": "path",
+      "description": "Desired framework to build Platform UI layer",
+      "visible": true,
+      "enum": ["angular", "react"],
+      "default": "angular"
+    },
+    "generateComponent": {
+      "type": "boolean",
+      "format": "path",
+      "description": "Genereate default component extending feature domain logic class",
+      "visible": true,
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "framework"
+  ]
+}

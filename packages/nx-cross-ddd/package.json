@@ -1,0 +1,18 @@
+{
+  "name": "@fazio/nx-cross-ddd-plugin",
+  "version": "0.0.18-beta.6",
+  "main": "src/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "schematics": "./collection.json",
+  "repository": {
+    "url": "https://github.com/FazioNico/nx-cross-ddd-plugin"
+  },
+  "author": {
+    "name": "Nicolas Fazio",
+    "url": "https://ngxmasterclass.com"
+  },
+  "description": "Nx plugin for structuring a monorepo with domains and layers as platform agnostic according to Nrwl's best practices and about DDD and SOLID programming software pattern",
+  "license": "MIT",
+  "private": false
+}

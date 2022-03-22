@@ -1,0 +1,19 @@
+interface IHttpService {
+  get: <T>(params: string) => Promise<T>;
+  post: <T>(params: string, body: any) => Promise<T>;
+  put: <T>(params: string, body: any) => Promise<T>;
+}
+
+const API_PATH = '/';
+
+export abstract class <%= className %>DataService {
+  constructor(
+    protected readonly _http: IHttpService,
+    protected readonly _apiUrl: string
+  ) { }
+
+  async load<%= className %><T>(): Promise<T> {
+    return await this._http
+      .get<T>(this._apiUrl + API_PATH);
+  }
+}

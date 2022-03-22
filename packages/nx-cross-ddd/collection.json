@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "factory": "./src/schematics/ng-add/index",
+      "description": "adds initial access restrictions to linting rules"
+    },
+    "domain": {
+      "description": "Generate framework agnostic Domain logic",
+      "factory": "./src/schematics/domain/index#mySchematic",
+      "schema": "./src/schematics/domain/schema.json"
+    },
+    "feature": {
+      "description": "Generate framework agnostic Domain Feature logic",
+      "factory": "./src/schematics/feature/index#mySchematic",
+      "schema": "./src/schematics/feature/schema.json"
+    },
+    "platform": {
+      "description": "Generate framework Platform Feature UI",
+      "factory": "./src/schematics/platform/index#mySchematic",
+      "schema": "./src/schematics/platform/schema.json"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-cross-ddd",
+  "version": "0.0.1",
+  "generators": {
+    "nx-cross-ddd": {
+      "factory": "./src/generators/nx-cross-ddd/generator",
+      "schema": "./src/generators/nx-cross-ddd/schema.json",
+      "description": "nx-cross-ddd generator"
+    },
+    "domain": {
+      "description": "Generate framework agnostic Domain logic",
+      "factory": "./src/schematics/domain/index#mySchematic",
+      "schema": "./src/schematics/domain/schema.json"
+    },
+    "feature": {
+      "description": "Generate framework agnostic Domain Feature logic",
+      "factory": "./src/schematics/feature/index#mySchematic",
+      "schema": "./src/schematics/feature/schema.json"
+    },
+    "platform": {
+      "description": "Generate framework Platform Feature UI",
+      "factory": "./src/schematics/platform/index#mySchematic",
+      "schema": "./src/schematics/platform/schema.json"
+    }
+  }
+}

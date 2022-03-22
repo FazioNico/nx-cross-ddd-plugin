@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsFeatures",
+  "title": "Domain Feature Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Domain Feature Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "domain": {
+      "type": "string",
+      "format": "path",
+      "description": "The Domain linked library",
+      "visible": true
+    }
+  },
+  "required": [
+    "name", "domain"
+  ]
+}

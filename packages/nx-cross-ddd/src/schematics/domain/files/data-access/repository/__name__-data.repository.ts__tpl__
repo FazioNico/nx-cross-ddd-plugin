@@ -1,0 +1,6 @@
+export abstract class <%= className %>DataRepository {
+  constructor(
+    protected readonly _<%= className %>Model: any
+  ) { }
+
+}

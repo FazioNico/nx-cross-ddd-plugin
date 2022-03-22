@@ -1,0 +1,18 @@
+import { Component, OnInit } from '@angular/core';
+import { <%= domainName %>Feature<%= className %> } from '@<%= workspace %>/<%= domain %>-feature-<%= name %>';
+
+@Component({
+  selector: '<%= domain %>-<%= framework %>-<%= name %>-ui',
+  template: ``,
+  styles: [``]
+})
+export class <%= domainName %><%= className %>UiComponent extends <%= domainName %>Feature<%= className %> implements OnInit {
+
+  constructor() {
+    super();
+  }
+
+  ngOnInit() {
+    console.log('[INFO] Use this method if you want run logic on component init()');
+  }
+}

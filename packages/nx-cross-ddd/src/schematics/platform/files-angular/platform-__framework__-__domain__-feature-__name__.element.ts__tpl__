@@ -1,0 +1,26 @@
+import { DoBootstrap, Injector, NgModule } from "@angular/core";
+import { createCustomElement } from "@angular/elements";
+import { <%= domainName %><%= className %>UiComponent } from './components/<%= domain %>-<%= name %>-ui/<%= domain %>-<%= name %>-ui.component';
+import { Platform<%= frameworkName %><%= domainName %>Feature<%= className %>BaseModule } from './platform-<%= framework %>-<%= domain %>-feature-<%= name %>.base';
+
+@NgModule({
+  imports: [
+    // only import base module without router implementation
+    Platform<%= frameworkName %><%= domainName %>Feature<%= className %>BaseModule
+  ]
+})
+export class Platform<%= frameworkName %><%= domainName %>Feature<%= className %>ElementModule implements DoBootstrap {
+  // Angular Class Module with Web Component implemenation and Base Module imperted
+  // Use this Module to use library as Web Component on your Applcation
+
+  constructor(private injector: Injector) {
+    const customAppElement = createCustomElement(<%= domainName %><%= className %>UiComponent, {
+      injector: this.injector
+    });
+    customElements.define('<%= domain %>-feature-<%= name %>', customAppElement);
+  }
+
+  ngDoBootstrap() {
+    console.log('Web Component init()');
+  }
+}

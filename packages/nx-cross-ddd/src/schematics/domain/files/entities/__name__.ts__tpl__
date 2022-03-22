@@ -1,0 +1,19 @@
+interface I<%= className %>Params {
+  _id?: string|undefined;
+}
+
+export class <%= className %> implements I<%= className %>Params {
+  public _id?: string|undefined;
+
+  constructor(params: Partial<I<%= className %>Params> = {}, fromStatic = false){
+    if (fromStatic !== true) {
+      throw new Error('Use static create() method');
+    }
+    const {_id = null} = params;
+    Object.assign(this, {_id});
+  }
+
+  static create(params: I<%= className %>Params) {
+    return new <%= className %>(params, true);
+  }
+}

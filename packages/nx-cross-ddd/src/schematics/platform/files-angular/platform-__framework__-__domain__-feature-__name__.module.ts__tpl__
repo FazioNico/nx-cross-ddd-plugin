@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { <%= domainName %><%= className %>UiComponent } from './components/<%= domain %>-<%= name %>-ui/<%= domain %>-<%= name %>-ui.component';
+import { Platform<%= frameworkName %><%= domainName %>Feature<%= className %>BaseModule } from './platform-<%= framework %>-<%= domain %>-feature-<%= name %>.base';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    Platform<%= frameworkName %><%= domainName %>Feature<%= className %>BaseModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: <%= domainName %><%= className %>UiComponent
+      }
+    ])
+  ]
+})
+export class Platform<%= frameworkName %><%= domainName %>Feature<%= className %>Module {};
+

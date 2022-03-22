@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsDomain",
+  "title": "Domain Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Domain Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "directory": {
+      "type": "string",
+      "format": "path",
+      "description": "The path directory allow you to use a custom sirectory structure for your library.",
+      "visible": true
+    },
+    "generateService": {
+      "type": "boolean",
+      "format": "path",
+      "description": "Generate Abstract Domain Service for client side",
+      "visible": true
+    },
+    "generateRepository": {
+      "type": "boolean",
+      "format": "path",
+      "description": "Generate Abstract Domain Repository for backend side",
+      "visible": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

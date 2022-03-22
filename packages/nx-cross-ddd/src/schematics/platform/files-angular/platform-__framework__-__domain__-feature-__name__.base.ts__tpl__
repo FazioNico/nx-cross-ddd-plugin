@@ -1,0 +1,17 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { <%= domainName %><%= className %>UiComponent } from './components/<%= domain %>-<%= name %>-ui/<%= domain %>-<%= name %>-ui.component';
+
+@NgModule({
+  imports: [
+    CommonModule,
+  ],
+  declarations: [
+    <%= domainName %><%= className %>UiComponent
+  ],
+  exports: [
+    <%= domainName %><%= className %>UiComponent
+  ],
+})
+export class Platform<%= frameworkName %><%= domainName %>Feature<%= className %>BaseModule {};
+

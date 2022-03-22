@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../../dist/out-tsc",
+    "declaration": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
+  },
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
+  "include": ["**/*.ts"]
+}

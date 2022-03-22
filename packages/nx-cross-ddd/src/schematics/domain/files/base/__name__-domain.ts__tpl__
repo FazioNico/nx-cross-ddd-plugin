@@ -1,0 +1,7 @@
+<% if (generateService) { %>
+export * from './data-access/<%= name %>-data.service';
+<% } %>
+<% if (generateRepository) { %>
+export * from './data-access/<%= name %>-data.repository';
+<% } %>
+export * from './entities/<%= name %>';

@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "projects": {
+    "nx-cross-ddd": {
+      "root": "packages/nx-cross-ddd",
+      "sourceRoot": "packages/nx-cross-ddd/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["packages/nx-cross-ddd/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/packages/nx-cross-ddd"],
+          "options": {
+            "jestConfig": "packages/nx-cross-ddd/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/packages/nx-cross-ddd",
+            "tsConfig": "packages/nx-cross-ddd/tsconfig.lib.json",
+            "packageJson": "packages/nx-cross-ddd/package.json",
+            "main": "packages/nx-cross-ddd/src/index.ts",
+            "assets": [
+              "packages/nx-cross-ddd/*.md",
+              "packages/nx-cross-ddd/LICENSE",
+              {
+                "input": "./packages/nx-cross-ddd/src",
+                "glob": "**/!(*.ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/nx-cross-ddd/src",
+                "glob": "**/*.d.ts",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/nx-cross-ddd",
+                "glob": "generators.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/nx-cross-ddd",
+                "glob": "executors.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/nx-cross-ddd",
+                "glob": "collection.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "nx-cross-ddd-e2e": {
+      "root": "e2e/nx-cross-ddd-e2e",
+      "projectType": "application",
+      "sourceRoot": "e2e/nx-cross-ddd-e2e/src",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nx-cross-ddd:build",
+            "npmPackageName": "@fazio/nx-cross-ddd",
+            "pluginOutputPath": "dist/packages/nx-cross-ddd",
+            "jestConfig": "e2e/nx-cross-ddd-e2e/jest.config.js"
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["nx-cross-ddd"]
+    }
+  }
+}
